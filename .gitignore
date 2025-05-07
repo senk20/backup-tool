@@ -21,11 +21,5 @@
 **/*.svg
 **/*.ico
 **/*pycache*
-pluggableweb-files
-Pages
 .vscode
-postgres_data
 myenv
-pycache
-postgres
-kutt
