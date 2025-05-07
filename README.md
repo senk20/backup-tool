@@ -12,17 +12,23 @@ A web-based backup tool for managing local file backups with a modern interface.
 
 ## Setup
 
-1. Install the required dependencies:
+1. Create virtual Environment
 ```bash
-pip install -r requirements.txt
+python3 -m venv myenv
 ```
-
-2. Run the application:
+2. Activate the environment
+```bash
+source myenv/bin/activate
+```
+3. Install the required dependencies:
+```bash
+python3 -m pip install -r requirements.txt
+```
+4. Run the application:
 ```bash
 python src/backend/app.py
 ```
-
-3. Open your browser and navigate to `http://localhost:5000`
+5. Open your browser and navigate to `http://localhost:5000`
 
 ## Running as a Service
 
