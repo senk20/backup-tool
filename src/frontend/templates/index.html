@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card shadow">
+    <div class="card-body">
+        <h2 class="card-title mb-4">Backup Manager</h2>
+        
+        <form id="backupForm" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="sourcePaths" class="form-label">Source Paths</label>
+                <div id="sourcePathsContainer">
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control source-path" placeholder="Enter source path" required>
+                        <button type="button" class="btn btn-outline-secondary remove-path" style="display: none;">
+                            Remove
+                        </button>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-outline-primary btn-sm" id="addSourcePath">
+                    Add Another Source
+                </button>
+            </div>
+
+            <div class="mb-3">
+                <label for="targetDir" class="form-label">Target Directory</label>
+                <input type="text" class="form-control" id="targetDir" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="ignorePatterns" class="form-label">Ignore Patterns</label>
+                <textarea class="form-control" id="ignorePatterns" rows="4" placeholder="Enter patterns to ignore (one per line)"></textarea>
+                <div class="form-text">Enter patterns similar to .gitignore format</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="startBackup">
+                <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                Start Backup
+            </button>
+        </form>
+    </div>
+</div>
+
+<div class="mt-4">
+    <div class="card shadow">
+        <div class="card-body">
+            <h5 class="card-title">Backup Status</h5>
+            <div id="backupStatus" class="alert d-none"></div>
+            <div id="backupLog" class="bg-light p-3 rounded" style="max-height: 200px; overflow-y: auto;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-4">
+    <div class="card shadow">
+        <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between align-items-center">
+                Existing Backups
+                <button class="btn btn-sm btn-outline-primary" id="refreshBackups">
+                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                    Refresh
+                </button>
+            </h5>
+            <div id="backupsContainer" class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>Location</th>
+                            <th>Size</th>
+                        </tr>
+                    </thead>
+                    <tbody id="backupsList">
+                        <tr>
+                            <td colspan="3" class="text-center text-muted">
+                                No backups found. Enter a target directory and click Refresh.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

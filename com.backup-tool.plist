@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.backup-tool</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>src/backend/app.py</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/kaustabh/Desktop/backup-tool</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PYTHONPATH</key>
+        <string>/Users/kaustabh/Desktop/backup-tool/src/backend</string>
+    </dict>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/Users/kaustabh/Desktop/backup-tool/logs/backup-service.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/kaustabh/Desktop/backup-tool/logs/backup-service-error.log</string>
+</dict>
+</plist>
